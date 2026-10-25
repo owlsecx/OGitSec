@@ -18,7 +18,7 @@
 
 ## 📌 Overview
 
-Git repository secret & history auditor
+OGitSec — Git Repository Secret & History Auditor. It provides working-tree scanner — walks any repo or directory, optional .gitignore awareness (git ls-files or a built-in fnmatch fallback), binary & size guards. Operators can export results (including machine-readable formats) and gate CI with severity thresholds where supported.
 
 ---
 
@@ -30,11 +30,6 @@ Git repository secret & history auditor
 - History scanner — git log -p over all refs with commit / author / date / path attribution, depth cap and subprocess timeouts
 - Diff scanner — staged (--cached) and unstaged changes for pre-commit and CI gating (--fail-on SEVERITY)
 - False-positive heuristics — placeholders, examples, repeated chars, all-zeros, test fixtures, inline `ogitsec:allow` pragmas, allowlist / denylist files
-- Git hygiene — committed .env / key files, large blobs, embedded remote passwords, plaintext credential helpers, missing .gitignore entries
-- Remediation guidance — rotation steps per provider, git-filter-repo / BFG instructions (never executed)
-- Baseline fingerprints + new-finding diff
-- Export TXT / CSV / JSON / SARIF 2.1.0 with location chooser, clipboard summary, full CLI mode
-- Works without git (filesystem scan only)
 
 ---
 
@@ -48,7 +43,10 @@ Git repository secret & history auditor
 ## 🚀 Usage
 
 ```bash
-./OGitSec
+./OGitSec                                     # interactive menu
+./OGitSec --path ./config_or_ruleset
+./OGitSec --json -o report.json
+./OGitSec --help
 ```
 
 ---
